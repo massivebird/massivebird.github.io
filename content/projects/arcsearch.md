@@ -6,4 +6,50 @@ description = "Digital video game archive search tool"
 remote_image = "https://camo.githubusercontent.com/6ca2bef433728d18b832c7f1272b0662b182726824f5c1dbc2f2082cf6c6a42a/68747470733a2f2f696d6775722e636f6d2f623868667a464e2e676966"
 +++
 
-TEST
+# What is arcsearch?
+
+Arcsearch is a command line utility for searching digital video game archives!
+
+A _digital video game archive_ — or _archive_, for short — is a directory that contains [retro] games in various ROM and ISO formats.
+
+## Motivation
+
+When my game archive grew, I didn't want to re-download a game if I already had it in my collection. I needed a fast and easy way to search my archive. I knew I had to make it myself since Windows File Explorer definitely wasn't the answer. All my homies hate Windows File Explorer.
+
+## Act I: Bash
+
+Arcsearch's first version was written in Bash!
+
+I first wrote Arcsearch in Bash when I was first learning the Linux command line. You can find the current version of `arcsearch.sh` [here](https://github.com/massivebird/dotfiles/blob/98cd02161010b6b4fd98384dec0b19657f852df9/scripts/arcsearch.sh).
+
+Writing this was pretty annoying since Bash isn't designed around ergonomics. Although the runtimes are 10+ seconds on my massive archive, `arcsearch.sh` is totally functional!
+
+> Did you know Bash supports associative arrays? I wish I didn't.
+
+## Act II: C++
+
+A short college assignment was a great motivator to rewrite Arcsearch in C++.
+
+## Act III: Rust
+
+## Act III.2: Python
+
+## Written in 
+
+## not sure where to put this
+
+Arcsearch requires the following archive system-game subdirectory structure:
+
+```
+/game/archive/root
+├── ds
+│   ├── game-1.nds
+│   ├── game-2.nds
+│   └── game-3.nds
+├── wii
+│   ├── game-1-dir
+│   │   └── game-1.wbfs
+│   └── game-2-dir
+│       └── game-2.wbfs
+└── config.yaml
+```
