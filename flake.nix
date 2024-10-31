@@ -18,7 +18,6 @@
         # `nix develop`
         devShell = mkShell {
           buildInputs = [
-            neovim
             zola
           ];
         };
