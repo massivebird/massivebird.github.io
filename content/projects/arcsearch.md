@@ -14,7 +14,13 @@ A _digital video game archive_ — or _archive_, for short — is a directory th
 
 ## Motivation
 
-When my game archive grew, I didn't want to re-download a game if I already had it in my collection. I needed a fast and easy way to search my archive. I knew I had to make it myself since Windows File Explorer definitely wasn't the answer. All my homies hate Windows File Explorer.
+My archive has more than 1,000 games across thirteen game systems. I wanted a fast and easy way to query my archive, especially to avoid redownloading games I already have in my collection. Windows File Explorer definitely wasn't cutting it, so I decided to write a program myself.
+
+## Driven by regular expressions
+
+Arcsearch performs queries as case-insensitive [regular expressions](https://en.wikipedia.org/wiki/Regular_expression), which means you can search using wildcard symbols and other patterns. This makes searching way more convenient.
+
+> Plus, you can get answers to questions such as "how many games in my archive have a number in the title?"
 
 ## Act I: Bash
 
