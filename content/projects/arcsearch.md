@@ -30,7 +30,7 @@ Arcsearch has been reborn many times. Let's walk through the saga!
 
 Arcsearch's first version was written in Bash! I wrote this when I was first learning the Linux command line; it was a great opportunity to practice my Bash skills. You can find the latest version of `arcsearch.sh` [here](https://github.com/massivebird/dotfiles/blob/98cd02161010b6b4fd98384dec0b19657f852df9/scripts/arcsearch.sh).
 
-I definitely wouldn't recommend writing something this complex in Bash. Even though it was a pain and runtimes are long, `arcsearch.sh` is totally functional!
+I definitely wouldn't recommend writing something this complex in Bash. Even though it was a pain to write and its runtimes are long, `arcsearch.sh` is totally functional!
 
 > Did you know Bash supports associative arrays? I wish I didn't.
 
