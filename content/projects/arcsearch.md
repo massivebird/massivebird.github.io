@@ -46,7 +46,7 @@ I wanted to write Arcsearch in a fun, performant language that I could comfortab
 
 ### Act III: Rust
 
-After my third and final attempt at learning Rust, it stuck. Arcsearch was my first major Rust project, and I am incredibly proud of it. I achieved the performance of C++ _and_ loved maintaining it. Arcsearch's Rust implementation remains the most feature-rich and performant version to date.
+After my third and final attempt at learning Rust, it stuck. Arcsearch was my first major Rust project, and I am incredibly proud of it. I achieved the performance of C++ _and_ love maintaining it. Arcsearch's Rust implementation remains the most feature-rich and performant version to date.
 
 ### Honorable mention: Python
 
