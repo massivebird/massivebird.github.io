@@ -33,5 +33,6 @@ menu = [
 
 socials = [
    { name = "github", url = "https://github.com/massivebird/", icon = "github" },
+   { name = "linkedin", url = "https://linkedin.com/in/notgarrett", icon = "linkedin" },
    { name = "spotify", url = "https://open.spotify.com/user/parrotflakes", icon = "spotify" },
 ]
