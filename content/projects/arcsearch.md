@@ -1,8 +1,10 @@
 +++
 title = "arcsearch"
 description = "Digital video game archive search tool"
+date = 2024-11-11
 
 [extra]
+repo_view = true
 remote_image = "/projects/arcsearch-demo.png"
 +++
 

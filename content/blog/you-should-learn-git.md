@@ -1,6 +1,9 @@
 +++
 title = "You should learn Git"
 date = 2024-07-18
+
+[extra]
+repo_view = true
 +++
 
 You should learn Git, especially if you're a programmer. Git breaks down the biggest barriers to improvement, letting you realize your untapped potential as a developer.

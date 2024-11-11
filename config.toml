@@ -22,9 +22,7 @@ author = "massivebird"
 highlight_code = true
 
 [extra]
-# Put all your custom variables here
-fancy_code = true
-repo_url = "https://github.com/massivebird/massivebird.github.io"
+repo_url = "https://github.com/massivebird/massivebird.github.io/tree/main/content/"
 
 menu = [
    { name = "/blog", url = "/blog", weight = 1 },

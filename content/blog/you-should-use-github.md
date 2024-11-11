@@ -1,6 +1,9 @@
 +++
 title = "You should use GitHub"
 date = 2024-07-19
+
+[extra]
+repo_view = true
 +++
 
 You should use GitHub, especially if you're a programmer. Check out the prerequisite blog post called ["You should learn Git"](@/blog/you-should-learn-git.md) if you're interested.
