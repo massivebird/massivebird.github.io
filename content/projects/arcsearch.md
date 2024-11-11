@@ -8,9 +8,9 @@ remote_image = "/projects/arcsearch-demo.png"
 
 ![arcsearch-yugioh](/projects/arcsearch-demo.png)
 
-+ [GitHub](https://github.com/massivebird/arcsearch)
++ [GitHub repository](https://github.com/massivebird/arcsearch)
 
-# What is arcsearch?
+# Welcome to arcsearch
 
 Arcsearch is a command line utility for searching digital video game archives! Written in [Rust](https://www.rust-lang.org/) 🦀
 
