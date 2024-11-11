@@ -1,4 +1,4 @@
 +++
-title = "🚧 under construction 🚧"
+title = "Garrett's projects"
 template = "cards.html"
 +++
