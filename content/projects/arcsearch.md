@@ -22,6 +22,16 @@ A _digital video game archive_ — or _archive_, for short — is a directory th
 
 My archive has more than 1,000 games across thirteen game systems. I wanted a fast and easy way to query my archive, especially to avoid redownloading games I already have in my collection. Windows File Explorer is the worst thing ever, so I decided to write a program myself.
 
+## Features and usage
+
+Arcsearch's queries are executed as [regular expressions](https://en.wikipedia.org/wiki/Regular_expression), which support pattern-matching wildcard characters. For example, I can run a query to return all game titles that contain at least two numeric digits.
+
+This next point is less of a "feature," but is still important to me: arcsearch _looks so good_. For each game that matches the user's query, its title is displayed along with its system. Each system's name can be colored to your preference.
+
+Above all, arcsearch is configurable by a [YAML](https://en.wikipedia.org/wiki/YAML) file. Early versions of arcsearch only worked by hard-coding my archive file structure in the source code. By scrapping that design in favor of an externally-defined config, other users can utilize arcsearch without necessarily altering their preexisting archive.
+
+> You can read more about arcsearch's customization [here](https://github.com/massivebird/arcsearch?tab=readme-ov-file#customization).
+
 ## Epilogue — History
 
 Arcsearch has been reborn many times. Let's walk through the saga!
