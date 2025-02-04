@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<html class="dark light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+    
+    
+    
+    <title>
+         arcsearch
+        
+    </title>
+
+        
+            <meta property="og:title" content="arcsearch" />
+        
+     
+
+     
+         
+             <meta property="og:description" content="Digital video game archive search tool" />
+         
+     
+
+     
+         
+             <meta name="description" content="Digital video game archive search tool" />
+         
+    
+
+    
+    
+
+    
+    
+        <link href=https://massivebird.github.io/fonts.css rel="stylesheet" />
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="Garrett&#x27;s brain" href="https://massivebird.github.io/atom.xml">
+
+
+    
+    
+        <link rel="stylesheet" type="text/css" href=https://massivebird.github.io/theme/light.css />
+        <link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://massivebird.github.io/theme/dark.css" />
+    
+
+    <!-- Set the correct theme in the script -->
+    <script src=https://massivebird.github.io/js/themetoggle.js></script>
+    
+        <script>setTheme(getSavedTheme());</script>
+    
+
+    <link rel="stylesheet" type="text/css" media="screen" href=https://massivebird.github.io/main.css />
+
+    
+</head>
+
+
+<body>
+    <div class="content">
+        <header>
+    <div class="main">
+        <a href=https:&#x2F;&#x2F;massivebird.github.io&#x2F;>Garrett&#x27;s brain</a>
+
+        <div class="socials">
+            
+            <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;massivebird&#x2F;" class="social">
+                <img alt=github src=https://massivebird.github.io/social_icons/github.svg>
+            </a>
+            
+            <a rel="me" href="https:&#x2F;&#x2F;linkedin.com&#x2F;in&#x2F;notgarrett" class="social">
+                <img alt=linkedin src=https://massivebird.github.io/social_icons/linkedin.svg>
+            </a>
+            
+            <a rel="me" href="https:&#x2F;&#x2F;open.spotify.com&#x2F;user&#x2F;parrotflakes" class="social">
+                <img alt=spotify src=https://massivebird.github.io/social_icons/spotify.svg>
+            </a>
+            
+        </div>
+    </div>
+
+    <nav>
+        
+        <a href=https://massivebird.github.io/blog style="margin-left: 0.5em">&#x2F;blog</a>
+        
+        <a href=https://massivebird.github.io/projects style="margin-left: 0.5em">&#x2F;projects</a>
+        
+        <a href=https://massivebird.github.io/about style="margin-left: 0.5em">&#x2F;about</a>
+        
+
+        
+        |<a id="dark-mode-toggle" onclick="toggleTheme(); event.preventDefault();" href="#">
+            <img src=https://massivebird.github.io/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light" />
+            <img src=https://massivebird.github.io/feather/moon.svg id="moon-icon" alt="Dark" />
+        </a>
+
+        <!-- Inititialize the theme toggle icons -->
+        <script>updateItemToggleTheme()</script>
+        
+    </nav>
+</header>
+
+
+        
+        
+    
+<main>
+    <article>
+        <div class="title">
+            
+            
+    <div class="page-header">
+        arcsearch<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
+
+
+                <div class="meta">
+                    
+                        Posted on <time>2024-11-11</time>
+                    
+
+                    
+
+                    
+
+                    
+                    
+
+                    
+                    
+                        
+                        
+                            
+                        
+
+                        
+                            
+                            :: <a href="https:&#x2F;&#x2F;github.com&#x2F;massivebird&#x2F;massivebird.github.io&#x2F;tree&#x2F;main&#x2F;content&#x2F;projects&#x2F;arcsearch.md" target="_blank" rel="noopener noreferrer"> Source Code</a>
+                        
+                    
+
+                    
+
+                </div>
+        </div>
+
+        
+
+        
+        
+
+        <section class="body">
+            <p><img src="/projects/arcsearch-demo.png" alt="arcsearch-yugioh" /></p>
+<ul>
+<li><a href="https://github.com/massivebird/arcsearch">GitHub repository</a></li>
+</ul>
+<h1 id="welcome-to-arcsearch">Welcome to arcsearch</h1>
+<p>Arcsearch is a command line utility for searching digital video game archives! Written in <a href="https://www.rust-lang.org/">Rust</a> 🦀</p>
+<p>A <em>digital video game archive</em> — or <em>archive</em>, for short — is a directory that contains [retro] games in various ROM and ISO formats.</p>
+<blockquote>
+<p>When I refer to &quot;arcsearch,&quot; I am referring to the <em>Rust</em> project. You can read about the four different arcsearch projects in the <em><a href="https://massivebird.github.io/projects/arcsearch/#epilogue-history">History</a></em> section.</p>
+</blockquote>
+<h2 id="motivation">Motivation</h2>
+<p>My archive has more than 1,000 games across thirteen game systems. I wanted a fast and easy way to query my archive, especially to avoid redownloading games I already have in my collection. Windows File Explorer is the worst thing ever, so I decided to write a program myself.</p>
+<h2 id="features-and-usage">Features and usage</h2>
+<p>Arcsearch's queries are executed as <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expressions</a>, which support pattern-matching wildcard characters. For example, I can run a query to return all game titles that contain at least two numeric digits.</p>
+<p>This next point is less of a &quot;feature,&quot; but is still important to me: arcsearch <em>looks so good</em>. For each game that matches the user's query, its title is displayed along with its system. Each system's name can be colored to your preference.</p>
+<p>Above all, arcsearch is configurable by a <a href="https://en.wikipedia.org/wiki/YAML">YAML</a> file. Early versions of arcsearch only worked by hard-coding my archive file structure in the source code. By scrapping that design in favor of an externally-defined config, other users can utilize arcsearch without necessarily altering their preexisting archive.</p>
+<blockquote>
+<p>You can read more about arcsearch's customization <a href="https://github.com/massivebird/arcsearch?tab=readme-ov-file#customization">here</a>.</p>
+</blockquote>
+<h2 id="epilogue-history">Epilogue — History</h2>
+<p>Arcsearch has been reborn many times. Let's walk through the saga!</p>
+<h3 id="act-i-bash">Act I: Bash</h3>
+<p>Arcsearch's first version was written in Bash! I wrote this when I was first learning the Linux command line; it was a great opportunity to practice my Bash skills. You can find the latest version of <code>arcsearch.sh</code> <a href="https://github.com/massivebird/dotfiles/blob/98cd02161010b6b4fd98384dec0b19657f852df9/scripts/arcsearch.sh">here</a>.</p>
+<p>I definitely wouldn't recommend writing something this complex in Bash. Even though it was a pain to write and its runtimes are long, <code>arcsearch.sh</code> is totally functional!</p>
+<blockquote>
+<p>Did you know Bash supports associative arrays? I wish I didn't.</p>
+</blockquote>
+<h3 id="act-ii-c">Act II: C++</h3>
+<p>To make Arcsearch faster, I rewrote it in C++. I concocted something functional thanks to some prior C++ experience and frantic Googling. The runtimes were incredible compared to Bash, and it became my preferred version for that reason — but I felt empty inside.</p>
+<p>I felt like I learned nothing from writing <code>arcsearch.cpp</code>. I was (and am) apathetic towards and uninterested in C++ as a language; I didn't feel motivated to improve the project further.</p>
+<p>I wanted to write Arcsearch in a fun, performant language that I could comfortably maintain and improve. <em>Rust's siren call beckoned me.</em></p>
+<blockquote>
+<p><code>arcsearch.cpp</code> has been lost to time, but maybe it's for the best.</p>
+</blockquote>
+<h3 id="act-iii-rust">Act III: Rust</h3>
+<p>After my third and final attempt at learning Rust, it stuck. Arcsearch was my first major Rust project, and I am incredibly proud of it. I achieved the performance of C++ <em>and</em> love maintaining it. Arcsearch's Rust implementation remains the most feature-rich and performant version to date.</p>
+<h3 id="honorable-mention-python">Honorable mention: Python</h3>
+<p>I partially rewrote Arcsearch in Python just to say that I did. I'm not Python's biggest fan, but I'll admit that <code>arcsearch-py</code> was really easy to write. The feature set is incomplete, but the program is totally functional. It even supports the same YAML configuration file format as the Rust version!</p>
+<p>You can check out <a href="https://github.com/massivebird/arcsearch-py">arcsearch-py on GitHub</a>.</p>
+
+        </section>
+    </article>
+</main>
+
+
+
+        
+            
+        
+
+        
+    </div>
+</body>
+
+</html>
