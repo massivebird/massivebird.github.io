@@ -1,0 +1,29 @@
+[[collection]]
+type = "card"
+title = "Condor"
+link = "https://github.com/massivebird/condor-web"
+content = "Condor is a web dashboard that helps Eastern Michigan University students enroll in courses. The user inputs the IDs of courses that are full, and Condor alerts the user whenever one of these courses become available for enrollment."
+tags = ["rust", "axum", "web"]
+
+[[collection]]
+type = "card"
+title = "Arcsearch"
+link = "https://github.com/massivebird/arcsearch"
+content = """Arcsearch is a bespoke file system querying utility designed for video game archives. It features regular expression support in addition to a suite of customizable behaviors.
+
+Originally written in Bash, maintained in Rust, and partially ported to Python."""
+tags = ["rust", "async", "cli", "bash"]
+
+[[collection]]
+type = "card"
+title = "Lanturn"
+link = "https://github.com/massivebird/lanturn"
+content = "Lanturn is a utility that regularly reports the connection status of a user-customizable list of  websites. Lanturn is useful for monitoring the status of local network devices and diagnosing network issues."
+tags = ["rust", "cli"]
+
+[[collection]]
+type = "card"
+title = "Voice Assistant (title subject to change)"
+link = "https://github.com/massivebird/voice-assistant"
+content = "This voice assistant program performs real-time voice-to-text recognition to carry out the dutiful will of the user. I wrote this in Python because it has the most accessible voice recognition libraries."
+tags = ["python"]
