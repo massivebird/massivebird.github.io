@@ -6,7 +6,7 @@ date = 2024-07-19
 repo_view = true
 +++
 
-You should use GitHub, especially if you're a programmer. Check out the prerequisite blog post called ["You should learn Git"](@/blog/you-should-learn-git.md) if you're interested.
+You should use GitHub, especially if you're a programmer. Check out the prerequisite blog post called ["You should learn Git"](@/posts/you-should-learn-git.md) if you're interested.
 
 GitHub is a powerful, cloud-based storage solution for Git repositories! Create remote copies of your projects _and_ take advantage of GitHub's killer features. The service is an industry standard in the software scene (and others) for a reason.
 

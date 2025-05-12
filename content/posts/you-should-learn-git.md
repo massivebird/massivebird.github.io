@@ -12,7 +12,7 @@ Git is a VCS (Version Control Software) that maintains a history of changes made
 
 Combined with services like GitHub, you can even create cloud-based copies of your work that you can freely update, download, and share. GitHub safely hosts your projects in case you drop your hard drive in the toilet. Oh yeah, and GitHub is totally free.
 
-> You can read more about GitHub in my other post, ["You should use GitHub"](@/blog/you-should-use-github.md)!
+> You can read more about GitHub in my other post, ["You should use GitHub"](@/posts/you-should-use-github.md)!
 
 Whenever you make changes to a project, Git allows you to create a new _commit_ to record said changes. Git automatically maintains a timeline of all commits, which you can view at any time.
 
