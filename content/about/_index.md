@@ -19,7 +19,7 @@ reaction = false
 
 <img
   alt="I'm Spider-Man"
-  src="dreamland.jpg"
+  src="/image/dreamland.jpg"
   style="width: 40%; float: right; padding-left: 2%"
 />
 

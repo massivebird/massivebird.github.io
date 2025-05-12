@@ -55,10 +55,10 @@ reaction = false # Whether to enable anonymous emoji reactions (Note: You need t
 reaction_align = "right" # "left" | "center" | "right"
 reaction_endpoint = "https://example.com/api/reaction"
 
-repo_url = "https://github.com/massivebird/massivebird.github.io/tree/main/content/"
+# repo_url = "https://github.com/massivebird/massivebird.github.io/tree/main/content/"
 
-menu = [
-   { name = "/blog", url = "/blog", weight = 1 },
-   { name = "/projects", url = "/projects", weight = 2 },
-   { name = "/about", url = "/about", weight = 3 },
-]
+# menu = [
+#    { name = "/blog", url = "/blog", weight = 1 },
+#    { name = "/projects", url = "/projects", weight = 2 },
+#    { name = "/about", url = "/about", weight = 3 },
+# ]
