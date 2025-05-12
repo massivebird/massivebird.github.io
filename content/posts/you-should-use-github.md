@@ -20,7 +20,7 @@ For starters, a Git repository or _repo_ is any directory that is "Git-enabled."
 
 A _remote repository_ — often shortened to _remote_ — is a version of your repo that is hosted on a different computer, typically on an online service such as GitHub.
 
-<img src="/github-repo.png" alt="image of a GitHub repo" />
+<img src="/images/github-repo.png" alt="image of a GitHub repo" />
 
 > Above: the remote repo for this website! You can find it [here](https://github.com/massivebird/massivebird.github.io) on GitHub.
 

@@ -16,7 +16,7 @@ Combined with services like GitHub, you can even create cloud-based copies of yo
 
 Whenever you make changes to a project, Git allows you to create a new _commit_ to record said changes. Git automatically maintains a timeline of all commits, which you can view at any time.
 
-<img src="/arcstat-git-log.png" alt="image of a Git log" />
+<img src="/images/arcstat-git-log.png" alt="image of a Git log" />
 
 > Above: a segment of the commit history for my Rust project, [arcstat](https://github.com/massivebird/arcstat).
 

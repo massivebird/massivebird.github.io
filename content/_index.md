@@ -11,9 +11,9 @@ footer = false
 name = "Garrett"
 id = "massivebird"
 bio = "A blog, or something similar"
-avatar = "avatar.png"
+avatar = "/images/avatar.png"
 links = [
-    { name = "GitHub", icon = "github", url = "https://github.com/<your-username>" },
+    { name = "GitHub", icon = "github", url = "https://github.com/massivebird" },
     { name = "LinkedIn", icon = "linkedin", url = "https://linkedin.com/in/notgarrett" },
 ]
 
