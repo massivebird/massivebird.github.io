@@ -5,6 +5,10 @@ date = 2025-05-11
 [extra]
 repo_view = true
 +++
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
 
 We all know the feeling of looking through an old project and being completely lost. _What does this variable do? Why did I decide to do that? What the hell was I thinking?_
 
