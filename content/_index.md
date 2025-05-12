@@ -24,4 +24,4 @@ recent_more_text = "more »"
 date_format = "%b %-d, %Y"
 +++
 
-I wish I knew how to do a kickflip
+I wish I could kickflip
