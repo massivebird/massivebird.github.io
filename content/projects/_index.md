@@ -7,7 +7,7 @@ template = "prose.html"
 lang = "en"
 
 title = "My projects"
-# subtitle = ""
+subtitle = "Too many to fit on one page"
 +++
 
 Here is a curated list of some of my coolest projects! If you even care.
