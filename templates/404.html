@@ -1,8 +1,18 @@
 {% extends "page.html" %}
 
 {% block main_content %}
-    <main class="centered-header">
-        {{ post_macros::page_header(title="404")}}
-        <span>Page not found :(</span>
-    </main>
+<main class="centered-header text-center py-20 min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-white">
+    <div class="bg-white rounded-2xl shadow-xl p-10 max-w-lg w-full">
+        <div class="flex flex-col items-center">
+            <svg class="w-20 h-20 text-blue-500 mb-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" />
+            </svg>
+            {{ post_macros::page_header(title="404") }}
+            <p class="text-lg text-gray-600 mb-8">Oops! The page you’re looking for doesn’t exist or has been moved.</p>
+            <a href="/" class="mt-2 inline-block bg-blue-600 text-white px-8 py-3 rounded-lg shadow hover:bg-blue-700 transition font-semibold text-base">
+                ⬅ Back to Home
+            </a>
+        </div>
+    </div>
+</main>
 {% endblock main_content %}
