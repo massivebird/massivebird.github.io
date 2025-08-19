@@ -1,33 +1,27 @@
-+++
++++ 
 title = "About me"
-# description = "About page of ..."
-template = "prose.html"
+description = "About page of ..."
+template = "prose.html" 
 insert_anchor_links = "none"
 
-[extra]
+[extra] 
 lang = 'en'
 
-title = "About me"
-subtitle = "Fun facts about The Architect himself"
+title = "About me" 
+subtitle = "A quick intro"
 
-math = false
-mermaid = false
-copy = false
-comment = false
-reaction = false
+math = false 
+mermaid = false 
+copy = false 
+comment = false 
+reaction = false 
 +++
 
-<img
-  alt="I'm Spider-Man"
-  src="/images/dreamland.jpg"
-  style="width: 40%; float: right; padding-left: 2%"
-/>
+Hi, I’m Garrett.  
 
-They call me Garrett. Programmer, artist, centrist, anti-consumerist, chameleon, double agent, etc. I want to write Rust programs that change the world.
+I’m a programmer and artist who enjoys exploring technology, music, and creative projects.  
+I like working with Rust and building tools that are practical and impactful.  
 
-My only criticism of Neovim is that it isn't written in a statically typed language. I live inside my NixOS machine, but I still use a Windows PC because the world is run by proprietary people.
-
-A list of the Best Drinks in Existence (so far):
-
-+ MGMT's _Congratulations_ (2010)
-+ Daft Punk's _Discovery_ (2001)
+Some of my favorite albums:  
+- *Congratulations* by MGMT (2010)  
+- *Discovery* by Daft Punk (2001)  
