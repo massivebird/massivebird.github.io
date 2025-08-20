@@ -18,11 +18,13 @@ My Jellyfin server is entirely local; it can only be accessed if the client is c
 
 Jellyfin looks and feels premium out of the box. The interface is neatly organized and ported nicely across devices. Since my server is limited to my local network, streaming speeds are fast and responsive, even with an intermediate proxy server that I'll discuss later.
 
-As long as your media is [organized properly](https://jellyfin.org/docs/general/server/media/movies/), Jellyfin automatically fetches cover art, genres, acting credits, review scores, and other metadata for all your movies and shows.
+As long as your media is [organized properly](https://jellyfin.org/docs/general/server/media/movies/), Jellyfin automatically fetches cover art, genres, acting credits, review scores, and other metadata for all your movies and shows. This is by far my favorite feature! 🐤
 
 <img src="/images/jellyfin-movie.png" alt="A movie and its metadata." />
 
-The server also supports multiple users with individual permissions set by an admin. For each user, Jellyfin keeps track of what you've watched, and where you left off on unfinished movies or episodes.
+Jellyfin has dedicated clients for iOS, Android, Xbox, Android TV, and more. The Chromecast app definitely beats loading a USB drive to watch a movie.
+
+The server supports multiple users and supports customizable permissions to control access to specific libraries. For each user, Jellyfin keeps track of what you've watched, and where you left off on unfinished movies or episodes.
 
 The project also features a plugin for sharing e-books, audiobooks, and comics, which I'm tempted to try out.
 
