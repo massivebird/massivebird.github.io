@@ -47,12 +47,12 @@ I decided to set up the reverse proxy server on my Raspberry Pi 4, since I event
 ```bash
 # ~/Caddyfile
 jellyfin.local {
-  # Handle error codes 5XX
+	# Handle error codes 5XX
 	handle_errors 5xx {
 		respond "Error: {err.status_code} {err.status_text}. -> Is the Jellyfin server up?"
 	}
 
-  # Generic error handling
+	# Generic error handling
 	handle_errors {
 		respond "RIP BOZO. Error: {err.status_code} {err.status_text}"
 	}
