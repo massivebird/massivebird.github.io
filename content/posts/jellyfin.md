@@ -16,7 +16,7 @@ This is a summary of my experience with Jellyfin.
 
 ## Jellyfin's features
 
-Jellyfin looks and feels premium out of the box. The interface is neatly organized and ported nicely across devices. Since my server is limited to my local network, streaming speeds are fast and responsive, even with an intermediate [proxy server](#introducing-a-reverse-proxy) that I'll discuss later.
+Jellyfin looks and feels premium out of the box. The interface is neatly organized and ported nicely across devices. Since my server is limited to my local network, streaming speeds are fast and responsive, even with an intermediate proxy server that I'll discuss later.
 
 As long as your media is [organized properly](https://jellyfin.org/docs/general/server/media/movies/), Jellyfin automatically fetches cover art, genres, acting credits, review scores, and other metadata for all your movies and shows.
 
