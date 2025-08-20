@@ -12,7 +12,7 @@ I've been using [Jellyfin](https://jellyfin.org/) to stream my collection of mov
 
 > Quick aside: I collect music, movies, and TV shows because I prefer to own my media rather than be stuck renting from streaming services. The latter seems reliable until one of your favorite bands [removes their music from Spotify](https://variety.com/2025/music/news/king-gizzard-and-the-lizard-wizard-pulls-music-off-spotify-1236470802/) in protest of company ethics, or Netflix [delists a bunch of titles](https://www.whats-on-netflix.com/leaving-soon/whats-leaving-netflix-in-september-2025/) you were dying to watch.
 
-This is a summary of my experience with Jellyfin.
+My Jellyfin server is entirely local; it can only be accessed if the client is connected to my home internet. Of course, it's always possible to make it accessible from beyond your local network.
 
 ## Jellyfin's features
 
