@@ -7,15 +7,7 @@ template = "prose.html"
 
 What's up, I'm Garrett! I offer one-on-one tutoring sessions for computer science students.
 
-## 🐤 About me
-
-I've earned an Associate of Science in Computer Science from Washtenaw Community College. I'm now a senior at EMU pursuing a Bachelor of Science in Applied Computer Science.
-
-In my free time, you'll find me developing Rust applications, bouldering at Planet Rock, eating Costco pizza, and listening to LCD Soundsystem with the lights off.
-
-## 🎓 As a tutor
-
-My tutoring style is oriented around personalized instruction and providing resources for your long-term success. My tutoring sessions aim to make you a more self-sufficient software developer.
+My tutoring style is oriented around personalized instruction and providing resources for your long-term success. I'll teach you self-sufficient approaches to studying, solving problems, and researching new subjects.
 
 I offer remote tutoring sessions in addition to in-person sessions on campus or in libraries.
 
@@ -23,9 +15,17 @@ My schedule is flexible but subject to change. I'll notify you ahead of time if 
 
 My rate is currently \$25 per hour. I accept payment through Venmo, PayPal, checks, and cash.
 
-## 🧠 My favorite courses
+## 🐤 About me
 
-Below is a list of collegiate courses I feel confident in tutoring. If your course or material isn't listed, feel free to contact me and see if I'm qualified to tutor.
+I've earned an Associate of Science in Computer Science from Washtenaw Community College. I'm now a senior at EMU pursuing a Bachelor of Science in Applied Computer Science.
+
+In my free time, you'll find me developing Rust applications, bouldering at Planet Rock, eating Costco pizza, and listening to LCD Soundsystem with the lights off.
+
+## 🎓 My favorite courses
+
+Below is a list of collegiate courses I feel confident in tutoring.
+
+If your course or material isn't listed, feel free to contact me and see if I'm qualified to tutor.
 
 {% detail(title="EMU Courses") %}
 + __COSC 111__: Introduction to Programming
