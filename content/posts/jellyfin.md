@@ -1,6 +1,6 @@
 +++
 title = "Hosting a media server with Jellyfin"
-date  = 2025-08-04
+date  = 2025-08-19
 
 [extra]
 repo_view = true
