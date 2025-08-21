@@ -6,23 +6,27 @@ date  = 2025-08-19
 repo_view = true
 +++
 
-<img src="/images/jellyfin.png" alt="The Jellyfin web interface." />
+{{ figure(src="/images/jellyfin.png", alt="Jellyfin's web interface.", caption="Jellyfin's desktop web interface.") }}
 
 I've been using [Jellyfin](https://jellyfin.org/) to stream my collection of movies and shows from my PC to my laptop, phone, and TV. Jellyfin is an open-source media server that makes local media accessible across devices through a neatly packaged web interface.
 
-> Quick aside: I collect music, movies, and TV shows because I prefer to own my media rather than be stuck renting from streaming services. The latter seems reliable until one of your favorite bands [removes their music from Spotify](https://variety.com/2025/music/news/king-gizzard-and-the-lizard-wizard-pulls-music-off-spotify-1236470802/) in protest of company ethics, or Netflix [delists a bunch of titles](https://www.whats-on-netflix.com/leaving-soon/whats-leaving-netflix-in-september-2025/) you were dying to watch.
+My Jellyfin server is entirely local; it can only be accessed from clients connected to my home internet. Of course, it's always possible to make your server accessible from beyond your local network.
 
-My Jellyfin server is entirely local; it can only be accessed if the client is connected to my home internet. Of course, it's always possible to make it accessible from beyond your local network.
+> Quick aside: I collect music, movies, and TV shows because I prefer owning media over renting from streaming services.
+>
+> Streaming seems reliable until one of your favorite bands [removes their music from Spotify](https://variety.com/2025/music/news/king-gizzard-and-the-lizard-wizard-pulls-music-off-spotify-1236470802/) in protest of company ethics, or Netflix [delists a bunch of titles](https://www.whats-on-netflix.com/leaving-soon/whats-leaving-netflix-in-september-2025/) you were dying to watch.
+>
+> Owning media is also totally free.
 
 ## Jellyfin's features
 
-Jellyfin looks and feels premium out of the box. The interface is neatly organized and ported nicely across devices. Since my server is limited to my local network, streaming speeds are fast and responsive, even with an intermediate proxy server that I'll discuss later.
+Jellyfin looks and feels premium out of the box. The interface is neatly organized and ported nicely across platforms. Since my server is limited to my local network, streaming speeds feel near instantaneous.
 
 As long as your media is [organized properly](https://jellyfin.org/docs/general/server/media/movies/), Jellyfin automatically fetches cover art, genres, acting credits, review scores, and other metadata for all your movies and shows. This is by far my favorite feature! 🐤
 
-<img src="/images/jellyfin-movie.png" alt="A movie and its metadata." />
+{{ figure(src="/images/jellyfin-movie.png", alt="A movie and its metadata.", caption="Jellyfin fetches all types of metadata for each movie.") }}
 
-Jellyfin has dedicated clients for iOS, Android, Xbox, Android TV, and more. The Chromecast app definitely beats loading a USB drive to watch a movie.
+Jellyfin has dedicated clients for iOS, Android, Roku, and more. The Chromecast app definitely beats loading a USB drive to watch a movie on the TV.
 
 The server supports multiple users and supports customizable permissions to control access to specific libraries. For each user, Jellyfin keeps track of what you've watched, and where you left off on unfinished movies or episodes.
 
