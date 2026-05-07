@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  
+  
+    
+  
+  <meta name="description" content="My blog site.">
+
+  <title>Hosting a media server with Jellyfin</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="https://massivebird.github.io/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://massivebird.github.io/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://massivebird.github.io/img/apple-touch-icon.png">
+  
+  <style>
+
+  /* light mode colors */
+  body {
+    --primary-color: #5871a2;
+    --primary-pale-color: #5871a233;
+    --primary-decoration-color: #5871a210;
+    --bg-color: #ffffff;
+    --text-color: #2f3030;
+    --text-pale-color: #767676;
+    --text-decoration-color: #a9a9a9;
+    --highlight-mark-color: #5f75b020;
+
+    --callout-note-color: #5871a2;
+    --callout-tip-color: #268556;
+    --callout-important-color: #885fc9;
+    --callout-warning-color: #ab6632;
+    --callout-caution-color: #c64e4e;
+  }
+
+  /* dark mode colors */
+  body.dark {
+    --primary-color: #6f8fd1;
+    --primary-pale-color: #6f8fd166;
+    --primary-decoration-color: #6f8fd112;
+    --bg-color: #1c1c1c;
+    --text-color: #c1c1c1;
+    --text-pale-color: #848484;
+    --text-decoration-color: #5f5f5f;
+    --highlight-mark-color: #8296cb3b;
+
+    --callout-note-color: #6f8fd1;
+    --callout-tip-color: #47976f;
+    --callout-important-color: #9776cd;
+    --callout-warning-color: #ad7a52;
+    --callout-caution-color: #d06161;
+  }
+
+  /* typography */
+  body {
+    --main-font: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    --homepage-max-width: 768px;
+    --main-max-width: 768px;
+    --avatar-size: 60px;
+    --font-size: 16px;
+    --line-height: 1.75;
+    --img-border-radius: 0px;
+    --detail-border-radius: 0px;
+    --dark-mode-img-brightness: 0.75;
+    --dark-mode-chart-brightness: 0.75;
+    --inline-code-border-radius: 2px;
+    --inline-code-bg-color: var(--primary-decoration-color);
+    --block-code-border-radius: 0px;
+    --block-code-border-color: var(--primary-color);
+    --detail-border-color: var(--primary-color);
+  }
+
+</style>
+
+  <link rel="stylesheet" href="https://massivebird.github.io/main.css">
+  
+
+
+
+  
+</head>
+
+<body class="post">
+  
+  <script>
+    const theme = sessionStorage.getItem('theme');
+    const match = window.matchMedia("(prefers-color-scheme: dark)").matches
+    if ((theme && theme == 'dark') || (!theme && match)) {
+      document.body.classList.add('dark');
+      const hl = document.querySelector('link#hl');
+      if (hl) hl.href = 'https://massivebird.github.io/hl-dark.css';
+    }
+  </script>
+  
+  
+<div id="wrapper">
+  <div id="blank"></div>
+  <aside>
+    
+    
+    <nav>
+      <ul>
+        
+        <li>
+          <a class="h2" href="#jellyfin-s-features">Jellyfin&#x27;s features</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#networking-improvements">Networking improvements</a>
+          
+          <ul>
+            
+            <li>
+              <a class="h3" href="#a-human-readable-address-using-dns">A human-readable address using DNS</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#introducing-a-reverse-proxy">Introducing a reverse proxy</a>
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#into-the-future">Into the future</a>
+          
+        </li>
+        
+      </ul>
+    </nav>
+    
+    
+    <button id="back-to-top" aria-label="back to top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+
+    </button>
+    
+  </aside>
+  <main>
+    
+<header>
+  <nav>
+    <a href="https:&#x2F;&#x2F;massivebird.github.io&#x2F;posts">← Back</a>
+  </nav>
+</header>
+
+
+    <div>
+      
+      
+      
+      
+      <div id="copy-cfg" style="display: none;" data-copy-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;path d=&quot;M6.9998 6V3C6.9998 2.44772 7.44752 2 7.9998 2H19.9998C20.5521 2 20.9998 2.44772 20.9998 3V17C20.9998 17.5523 20.5521 18 19.9998 18H16.9998V20.9991C16.9998 21.5519 16.5499 22 15.993 22H4.00666C3.45059 22 3 21.5554 3 20.9991L3.0026 7.00087C3.0027 6.44811 3.45264 6 4.00942 6H6.9998ZM5.00242 8L5.00019 20H14.9998V8H5.00242ZM8.9998 6H16.9998V16H18.9998V4H8.9998V6Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;
+" data-check-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;path d=&quot;M10.0007 15.1709L19.1931 5.97852L20.6073 7.39273L10.0007 17.9993L3.63672 11.6354L5.05093 10.2212L10.0007 15.1709Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;
+"></div>
+      
+      <article class="prose">
+        <h1>Hosting a media server with Jellyfin</h1>
+        <div id="post-info">
+          <div id="date">
+            <span id="publish">Aug 19, 2025</span>
+            </div>
+
+          
+        </div>
+
+        
+        
+
+        
+
+        <figure>
+    <img src="&#x2F;images&#x2F;jellyfin.png"  alt="Jellyfin&#x27;s web interface.">
+    
+    <figcaption>Jellyfin&#x27;s desktop web interface.</figcaption>
+    
+</figure>
+<p>I've been using <a rel="nofollow noreferrer" href="https://jellyfin.org/">Jellyfin</a> to stream my collection of movies and shows from my PC to my laptop, phone, and TV. Jellyfin is an open-source media server that makes local media accessible across devices through a neatly packaged web interface.</p>
+<p>My Jellyfin server is entirely local; it can only be accessed from clients connected to my home internet. Of course, it's always possible to make your server accessible from beyond your local network.</p>
+<blockquote>
+<p>Quick aside: I collect music, movies, and TV shows because I prefer owning media over renting from streaming services.</p>
+<p>Streaming seems reliable until one of your favorite bands <a rel="nofollow noreferrer" href="https://variety.com/2025/music/news/king-gizzard-and-the-lizard-wizard-pulls-music-off-spotify-1236470802/">removes their music from Spotify</a> in protest of company ethics, or Netflix <a rel="nofollow noreferrer" href="https://www.whats-on-netflix.com/leaving-soon/whats-leaving-netflix-in-september-2025/">delists a bunch of titles</a> you were dying to watch.</p>
+<p>Owning media is also totally free.</p>
+</blockquote>
+<h2 id="jellyfin-s-features">Jellyfin's features<a class="zola-anchor" href="#jellyfin-s-features" aria-label="Anchor link for: jellyfin-s-features" style="visibility: hidden;"></a>
+</h2>
+<p>Jellyfin looks and feels premium out of the box. The interface is neatly organized and ported nicely across platforms. Since my server is limited to my local network, streaming speeds feel near instantaneous.</p>
+<p>As long as your media is <a rel="nofollow noreferrer" href="https://jellyfin.org/docs/general/server/media/movies/">organized properly</a>, Jellyfin automatically fetches cover art, genres, acting credits, review scores, and other metadata for all your movies and shows. This is by far my favorite feature! 🐤</p>
+<figure>
+    <img src="&#x2F;images&#x2F;jellyfin-movie.png"  alt="A movie and its metadata.">
+    
+    <figcaption>Jellyfin fetches all types of metadata for each movie.</figcaption>
+    
+</figure>
+<p>Jellyfin has dedicated clients for iOS, Android, Roku, and more. The Chromecast app definitely beats loading a USB drive to watch a movie on the TV.</p>
+<p>The server supports multiple users and supports customizable permissions to control access to specific libraries. For each user, Jellyfin keeps track of what you've watched, and where you left off on unfinished movies or episodes.</p>
+<p>The project also features a plugin for sharing e-books, audiobooks, and comics, which I'm tempted to try out.</p>
+<h2 id="networking-improvements">Networking improvements<a class="zola-anchor" href="#networking-improvements" aria-label="Anchor link for: networking-improvements" style="visibility: hidden;"></a>
+</h2>
+<p>Jellyfin itself was easy to set up and works great, but I always find something to complain about. My server's initial address was <code>192.168.1.159:8096</code>, which is so NOT sexy. I want to type in words, not numbers. This is <em>not</em> a Jellyfin problem; this is a computer networking problem.</p>
+<h3 id="a-human-readable-address-using-dns">A human-readable address using DNS<a class="zola-anchor" href="#a-human-readable-address-using-dns" aria-label="Anchor link for: a-human-readable-address-using-dns" style="visibility: hidden;"></a>
+</h3>
+<p>Luckily, my router supports adding custom <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Domain_Name_System">Domain Name System</a> (DNS) entries. I added one that redirects local requests to <code>jellyfin.local</code> to the server's IP address at <code>192.168.1.159</code>. With DNS configured, the address becomes <code>jellyfin.local:8096</code>.</p>
+<p>This is a huge improvement, but the port number is still there! I guess DNS doesn't support binding domain names to specific ports. We'll need another technology to eliminate the port number from the address.</p>
+<h3 id="introducing-a-reverse-proxy">Introducing a reverse proxy<a class="zola-anchor" href="#introducing-a-reverse-proxy" aria-label="Anchor link for: introducing-a-reverse-proxy" style="visibility: hidden;"></a>
+</h3>
+<p>A <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Reverse_proxy">reverse proxy</a> is one such approach to getting rid of that pesky port part. The proxy server acts as an intermediate step between the client and the Jellyfin server. I chose to use <a rel="nofollow noreferrer" href="https://caddyserver.com/">Caddy</a> as my reverse proxy server, but it's incredibly customizable and can do a lot more than that.</p>
+<p>I decided to set up the reverse proxy server on my Raspberry Pi 4, since I eventually want to migrate the Jellyfin server from my PC to the Pi. I set it up with Caddy's <a rel="nofollow noreferrer" href="https://caddyserver.com/docs/quick-starts/reverse-proxy">reverse proxy guide</a>. Let me explain my config file:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;"># ~/Caddyfile
+</span><span style="color:#bf616a;">jellyfin.local </span><span>{
+</span><span>	</span><span style="color:#65737e;"># Handle error codes 5XX
+</span><span>	handle_errors 5xx {
+</span><span>		respond &quot;</span><span style="color:#a3be8c;">Error: {err.status_code} {err.status_text}. -&gt; Is the Jellyfin server up?</span><span>&quot;
+</span><span>	}
+</span><span>
+</span><span>	</span><span style="color:#65737e;"># Generic error handling
+</span><span>	handle_errors {
+</span><span>		respond &quot;</span><span style="color:#a3be8c;">RIP BOZO. Error: {err.status_code} {err.status_text}</span><span>&quot;
+</span><span>	}
+</span><span>
+</span><span>	reverse_proxy clint.local:8096 </span><span style="color:#65737e;"># Jellyfin server address
+</span><span>}
+</span><span>
+</span><span style="color:#bf616a;">pi.local </span><span>{
+</span><span>	respond &quot;</span><span style="color:#a3be8c;">Hello from the pi :3</span><span>&quot;
+</span><span>}
+</span></code></pre>
+<p>I configured my router's DNS again so that <code>jellyfin.local</code> and <code>pi.local</code> both correspond to the Pi's IP. Caddy catches incoming HTTP/HTTPS requests and is configured to respond depending on which domain name was used.</p>
+<p>An HTTP/HTTPS request using <code>pi.local</code> doesn't do much; Caddy just returns a string. But for requests using <code>jellyfin.local</code>, Caddy will serve the Jellyfin server to the client.</p>
+<p>In other words, to access my Jellyfin server, all I need to type in is <code>jellyfin.local</code>. The request is received by the Pi, then processed by Caddy to serve the media server hosted on my PC.</p>
+<h2 id="into-the-future">Into the future<a class="zola-anchor" href="#into-the-future" aria-label="Anchor link for: into-the-future" style="visibility: hidden;"></a>
+</h2>
+<p>I'm very happy with Jellyfin, and I can't wait to grow my film collection!</p>
+<p>Eventually, the reverse proxy and media server will live on a dedicated machine. The Pi will be my testing ground for hosting a reverse proxy, file server, and media server simultaneously. I'll consider upgrading hardware depending on the Pi's performance.</p>
+
+      </article>
+
+      
+      
+
+      
+      
+    </div>
+
+    
+
+
+<footer>
+  <div class="left">
+    <div class="copyright">
+      © 2025 massivebird
+      
+      <span>|</span>
+      Built with <a href="https://www.getzola.org" rel="noreferrer" target="_blank">zola</a> and <a href="https://github.com/isunjn/serene" rel="noreferrer" target="_blank">serene</a>
+      
+    </div>
+  </div>
+
+  <div class="right">
+    
+    
+    
+    
+
+    
+    
+    
+    <button id="theme-toggle" aria-label="theme switch">
+      <span class="moon-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z" fill="currentColor"></path></svg>
+</span>
+      <span class="sun-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z" fill="currentColor"></path></svg>
+</span>
+    </button>
+    
+  </div>
+</footer>
+
+
+
+
+
+  </main>
+</div>
+
+  
+<script src="/js/lightense.min.js"></script>
+
+
+  <script src="https://massivebird.github.io/js/main.js"></script>
+</body>
+
+</html>
