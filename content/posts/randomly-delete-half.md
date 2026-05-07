@@ -1,5 +1,5 @@
 +++
-title = "Randomly delete half your files with Lots"
+title = "Randomly delete half of all your files with Lots"
 date = 2026-03-02
 
 [extra]
